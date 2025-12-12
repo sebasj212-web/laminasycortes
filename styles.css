@@ -63,6 +63,31 @@ section h2 {
     border-bottom: 2px solid #3498db;
     padding-bottom: 0.5rem;
 }
+/* Testimonios */
+.testimonios-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.testimonio {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+.testimonio p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.testimonio .autor {
+    font-weight: bold;
+    color: #2c3e50;
+}
 
 /* Footer */
 footer {
