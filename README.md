@@ -1,88 +1,186 @@
-# 🔧 Láminas y Cortes
+# 🔧 Láminas y Cortes - Sistema de Cotizaciones
 
-Sitio web oficial de **Láminas y Cortes** - Tu proveedor de confianza en láminas y servicios de corte de precisión.
+Aplicación web completa para **Láminas y Cortes** - Sistema de gestión de cotizaciones, productos y clientes.
 
 ## 📋 Descripción
 
-Este proyecto es un sitio web moderno y responsive para Láminas y Cortes, diseñado para mostrar nuestros productos, servicios y facilitar el contacto con nuestros clientes.
+Este proyecto es una aplicación web moderna en desarrollo que incluirá:
+- Sistema de autenticación de usuarios
+- Gestión de productos y catálogo
+- Generación de cotizaciones
+- Dashboard de administración
+- Reportes y análisis
 
-## ✨ Características
+**Estado actual**: 🚧 En desarrollo - Fase 1: Sistema de Login
 
-- 🎨 **Diseño Moderno**: Interfaz limpia y profesional
-- 📱 **Responsive**: Optimizado para dispositivos móviles y desktop
-- ⚡ **Rápido**: Carga rápida sin dependencias pesadas
-- 🎯 **Navegación Suave**: Scroll suave entre secciones
-- ✨ **Animaciones**: Efectos visuales al hacer scroll
-- 🕐 **Dinámico**: Contenido que se actualiza automáticamente
+## ✨ Características (Planificadas)
 
-## 🚀 Tecnologías Utilizadas
+### Fase 1: Autenticación ✅ (En Desarrollo)
+- 🔐 Login y registro de usuarios
+- 🔒 Protección de rutas
+- 💾 Persistencia de sesión
+- ✅ Validaciones de formularios
 
+### Fase 2: Gestión de Usuarios 📅
+- 👤 Perfiles de usuario
+- 🔑 Sistema de roles (Admin, Vendedor, Cliente)
+- 🔐 Autenticación JWT con backend
+
+### Fase 3: Catálogo de Productos 📅
+- 📦 CRUD de productos
+- 🏷️ Categorías y filtros
+- 🔍 Búsqueda en tiempo real
+- 🖼️ Gestión de imágenes
+
+### Fase 4: Sistema de Cotizaciones 📅
+- 📝 Crear cotizaciones
+- 💰 Cálculos automáticos
+- 📄 Generación de PDFs
+- 📧 Envío por email
+
+### Fase 5: Dashboard y Reportes 📅
+- 📊 Métricas y estadísticas
+- 📈 Gráficos interactivos
+- 📥 Exportación de datos
+
+## 🚀 Tecnologías
+
+### Frontend (Actual)
 - **HTML5**: Estructura semántica
 - **CSS3**: Estilos modernos con Flexbox y Grid
 - **JavaScript (ES6+)**: Funcionalidad interactiva
-- **Git**: Control de versiones
+
+### Stack Planificado - Fase 1
+- **Vite**: Build tool moderno
+- **Jest**: Testing framework
+- **ESLint + Prettier**: Calidad de código
+- **LocalStorage**: Persistencia temporal
+
+### Stack Futuro (Fases 2-5)
+- **React**: UI framework
+- **Node.js + Express**: Backend
+- **PostgreSQL/MongoDB**: Base de datos
+- **JWT**: Autenticación
+- **Cloudinary**: Gestión de imágenes
 
 ## 📁 Estructura del Proyecto
 
+### Estructura Actual (Sitio Estático)
 ```
 laminasycortes/
-├── index.html      # Página principal
-├── styles.css      # Estilos CSS
-├── app.js          # Lógica JavaScript
-└── README.md       # Este archivo
+├── index.html           # Página principal (legacy)
+├── styles.css           # Estilos CSS (legacy)
+├── app.js               # Lógica JavaScript (legacy)
+├── README.md            # Este archivo
+├── PLAN_DESARROLLO.md   # 📋 Plan completo por fases
+└── FASE_1_LOGIN.md      # 📘 Guía detallada Fase 1
+```
+
+### Estructura Planificada (Fase 1)
+```
+laminasycortes/
+├── src/
+│   ├── components/      # Componentes reutilizables
+│   ├── services/        # Lógica de negocio
+│   ├── utils/           # Utilidades
+│   ├── styles/          # Estilos CSS
+│   └── tests/           # Tests
+├── public/
+├── dist/                # Build output
+├── package.json
+├── vite.config.js
+└── jest.config.js
 ```
 
 ## 🛠️ Instalación y Uso
 
-### Opción 1: Abrir directamente
+### Versión Actual (Sitio Estático)
 
-1. Clona el repositorio:
 ```bash
+# Clonar repositorio
 git clone https://github.com/sebasj212-web/laminasycortes.git
+cd laminasycortes
+
+# Opción 1: Abrir index.html directamente en el navegador
+
+# Opción 2: Servidor local
+python -m http.server 8000
+# Abre: http://localhost:8000
 ```
 
-2. Abre `index.html` en tu navegador favorito
-
-### Opción 2: Con servidor local
+### Fase 1 (Próximamente)
 
 ```bash
-# Con Python 3
-python -m http.server 8000
+# Instalar dependencias
+npm install
 
-# Con Node.js (npx)
-npx http-server
+# Desarrollo
+npm run dev
 
-# Con PHP
-php -S localhost:8000
+# Tests
+npm test
+
+# Build producción
+npm run build
 ```
 
-Luego abre: `http://localhost:8000`
+## 📚 Documentación del Proyecto
 
-## 📦 Secciones del Sitio
+### 🎯 ¿Nuevo en el proyecto? ¡Empieza aquí!
+👉 **[INICIO_RAPIDO.md](./INICIO_RAPIDO.md)** - Guía paso a paso para comenzar
 
-1. **Inicio** - Bienvenida y presentación
-2. **Productos** - Catálogo de láminas disponibles
-3. **Servicios** - Servicios de corte y fabricación
-4. **Contacto** - Información de contacto
+### 📖 Documentación Completa
+- **[PLAN_DESARROLLO.md](./PLAN_DESARROLLO.md)**: Plan completo de desarrollo por fases
+- **[FASE_1_LOGIN.md](./FASE_1_LOGIN.md)**: Guía detallada de implementación Fase 1
 
-## 🤝 Contribuciones
+## 🎯 Roadmap
 
-Este proyecto fue desarrollado colaborativamente:
+- [x] Sitio web estático inicial
+- [x] Secciones básicas (Inicio, Productos, Servicios, Contacto)
+- [x] Plan de desarrollo por fases
+- [ ] **Fase 1**: Sistema de Login (EN DESARROLLO)
+- [ ] Fase 2: Gestión de Usuarios
+- [ ] Fase 3: Catálogo de Productos
+- [ ] Fase 4: Sistema de Cotizaciones
+- [ ] Fase 5: Dashboard y Reportes
 
-- **HTML & JavaScript**: Claude
-- **CSS**: @sebasj212-web
-- **Diseño y planificación**: Colaborativo
+## 🤝 Desarrollo
+
+Este proyecto es desarrollado con fines de aprendizaje e implementación profesional:
+
+- **Desarrollador**: @sebasj212-web
+- **Metodología**: Desarrollo iterativo por fases
+- **Enfoque**: Aprendizaje de buenas prácticas, testing, y despliegue
+- **Asistencia técnica**: Claude Code
 
 ## 🔄 Flujo de Trabajo Git
 
-Utilizamos **Feature Branch Workflow**:
+Utilizamos **Feature Branch Workflow** con commits convencionales:
 
-1. Crear rama desde `main`: `git checkout -b feature/nombre`
-2. Desarrollar la funcionalidad
-3. Commit de cambios: `git commit -m "Descripción"`
-4. Push al remoto: `git push origin feature/nombre`
-5. Pull Request a `main`
-6. Code review y merge
+```bash
+# Crear feature branch
+git checkout -b feature/login-form
+
+# Commits semánticos
+git commit -m "feat: agregar formulario de login"
+git commit -m "test: agregar tests de validación"
+git commit -m "fix: corregir validación de email"
+
+# Push
+git push -u origin feature/login-form
+
+# Merge a branch principal
+git checkout claude/quotes-app-login-phase-1p1n9
+git merge feature/login-form
+```
+
+### Tipos de Commits
+- `feat:` Nueva funcionalidad
+- `fix:` Corrección de bugs
+- `test:` Agregar o modificar tests
+- `refactor:` Refactorización de código
+- `docs:` Documentación
+- `chore:` Tareas de mantenimiento
 
 ## 📝 Commits Principales
 
