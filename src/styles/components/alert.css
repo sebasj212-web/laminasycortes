@@ -1,0 +1,70 @@
+/* Componente Alert */
+.alert {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-md);
+  border-left: 4px solid;
+}
+
+.alert-content {
+  flex: 1;
+}
+
+.alert-title {
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-xs);
+}
+
+.alert-message {
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.alert-close {
+  background: none;
+  border: none;
+  font-size: var(--font-size-xl);
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  margin-left: var(--spacing-md);
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+}
+
+.alert-close:hover {
+  opacity: 1;
+}
+
+/* Tipo Success */
+.alert--success {
+  background-color: rgba(39, 174, 96, 0.1);
+  color: #27ae60;
+  border-left-color: var(--color-success);
+}
+
+/* Tipo Error */
+.alert--error {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: #c0392b;
+  border-left-color: var(--color-error);
+}
+
+/* Tipo Warning */
+.alert--warning {
+  background-color: rgba(243, 156, 18, 0.1);
+  color: #d68910;
+  border-left-color: var(--color-warning);
+}
+
+/* Tipo Info */
+.alert--info {
+  background-color: rgba(52, 152, 219, 0.1);
+  color: #2980b9;
+  border-left-color: var(--color-info);
+}
