@@ -7,6 +7,7 @@ export default {
   collectCoverageFrom: [
     'src/**/*.js',
     '!src/main.js',
+    '!src/demo.js',
     '!src/tests/**'
   ],
   coverageThreshold: {
