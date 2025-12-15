@@ -174,8 +174,8 @@ export function QuotesList({ onEdit, onView, onDelete } = {}) {
       const emptyDiv = document.createElement('div');
       emptyDiv.className = 'quotes-empty-state';
       emptyDiv.innerHTML = `
-        <p>No hay cotizaciones creadas aún.</p>
-        <p>Crea tu primera cotización para comenzar.</p>
+        <p>¡Bienvenido! Aún no tienes cotizaciones.</p>
+        <p>Comienza creando tu primera cotización haciendo clic en el botón verde de arriba.</p>
       `;
 
       const emptyState = Card({
