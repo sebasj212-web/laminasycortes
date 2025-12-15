@@ -107,13 +107,6 @@ export function QuoteForm({ onSuccess, onCancel } = {}) {
         if (config.field === 'quantity' || config.field === 'unitPrice') {
           updateTotal();
         }
-
-        // Re-renderizar el input para actualizar errores
-        const oldInput = form.querySelector(`[name="${config.name}"]`)?.closest('.input-group');
-        if (oldInput) {
-          const newInput = renderInput(config);
-          oldInput.replaceWith(newInput);
-        }
       }
     });
   }
