@@ -1,7 +1,6 @@
 /**
  * Main entry point de la aplicación
  * Láminas y Cortes - Sistema de Cotizaciones
- * Sprint 2: Demo de Componentes UI
  */
 
 // Importar estilos globales
@@ -14,14 +13,18 @@ import './styles/components/input.css';
 import './styles/components/card.css';
 import './styles/components/alert.css';
 
-// Importar página de demo
-import { renderDemo } from './demo';
+// Importar estilos de páginas
+import './styles/pages/quotes.css';
 
-// Renderizar demo en el DOM
+// Importar página de cotizaciones
+import { QuotesPage } from './pages/quotes';
+
+// Renderizar aplicación
 const app = document.getElementById('app');
 if (app) {
-  renderDemo(app);
+  const quotesPage = QuotesPage();
+  app.appendChild(quotesPage);
 }
 
-console.log('🎨 Demo de Componentes UI cargada');
-console.log('✅ Sprint 2 completado');
+console.log('💼 Sistema de Cotizaciones cargado');
+console.log('✅ FASE 1 MVP completado');

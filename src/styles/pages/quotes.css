@@ -1,0 +1,54 @@
+/* Quotes Page Styles */
+
+.quotes-page {
+  min-height: 100vh;
+  background-color: var(--color-bg-light, #f8f9fa);
+  padding: var(--spacing-xl);
+}
+
+.quotes-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--color-border, #e0e0e0);
+}
+
+.quotes-page-title {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--color-text-primary, #2c3e50);
+  font-weight: 700;
+}
+
+.quotes-page-content {
+  width: 100%;
+}
+
+/* Card override for form */
+.quotes-page-content > .card {
+  background-color: white;
+  box-shadow: var(--shadow-md);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .quotes-page {
+    padding: var(--spacing-md);
+  }
+
+  .quotes-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+
+  .quotes-page-header .button {
+    width: 100%;
+  }
+
+  .quotes-page-title {
+    font-size: 1.5rem;
+  }
+}
