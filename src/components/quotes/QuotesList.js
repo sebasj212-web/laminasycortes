@@ -171,19 +171,17 @@ export function QuotesList({ onEdit, onView, onDelete } = {}) {
     const quotes = QuotesService.getAllQuotes();
 
     if (quotes.length === 0) {
-      const emptyState = Card({
-        padded: true,
-        children: [
-          document.createElement('div')
-        ]
-      });
-
-      const emptyContent = emptyState.querySelector('.card-content > div');
-      emptyContent.className = 'quotes-empty-state';
-      emptyContent.innerHTML = `
+      const emptyDiv = document.createElement('div');
+      emptyDiv.className = 'quotes-empty-state';
+      emptyDiv.innerHTML = `
         <p>No hay cotizaciones creadas aún.</p>
         <p>Crea tu primera cotización para comenzar.</p>
       `;
+
+      const emptyState = Card({
+        padded: true,
+        children: emptyDiv
+      });
 
       container.appendChild(emptyState);
       return;
