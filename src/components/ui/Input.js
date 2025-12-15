@@ -11,6 +11,7 @@
  * @param {boolean} props.disabled - Campo deshabilitado
  * @param {string} props.error - Mensaje de error
  * @param {string} props.className - Clases CSS adicionales
+ * @param {Function} props.onChange - Callback cuando cambia el valor
  * @returns {HTMLDivElement}
  */
 export function Input({
@@ -23,7 +24,8 @@ export function Input({
   required = false,
   disabled = false,
   error = '',
-  className = ''
+  className = '',
+  onChange
 }) {
   // Container principal
   const container = document.createElement('div');
@@ -61,6 +63,11 @@ export function Input({
     inputClasses.push('input--error');
   }
   input.className = inputClasses.join(' ');
+
+  // Event listener para onChange
+  if (onChange) {
+    input.addEventListener('input', onChange);
+  }
 
   container.appendChild(input);
 

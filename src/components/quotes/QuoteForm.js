@@ -109,7 +109,7 @@ export function QuoteForm({ onSuccess, onCancel } = {}) {
         }
 
         // Re-renderizar el input para actualizar errores
-        const oldInput = form.querySelector(`[name="${config.name}"]`)?.closest('.input-wrapper');
+        const oldInput = form.querySelector(`[name="${config.name}"]`)?.closest('.input-group');
         if (oldInput) {
           const newInput = renderInput(config);
           oldInput.replaceWith(newInput);
