@@ -83,7 +83,9 @@ const QuotesService = {
         description: quoteData.product.description,
         quantity: Number(quoteData.product.quantity),
         unitPrice: Number(quoteData.product.unitPrice),
-        total: Number(quoteData.product.quantity) * Number(quoteData.product.unitPrice)
+        subtotal: Number(quoteData.product.quantity) * Number(quoteData.product.unitPrice),
+        iva: (Number(quoteData.product.quantity) * Number(quoteData.product.unitPrice)) * 0.16,
+        total: (Number(quoteData.product.quantity) * Number(quoteData.product.unitPrice)) * 1.16
       },
       createdAt: new Date().toISOString(),
       createdBy: currentUserEmail || 'anonymous'
@@ -145,15 +147,20 @@ const QuotesService = {
       }
     }
 
+    const quantity = updates.product?.quantity || quotes[quoteIndex].product.quantity;
+    const unitPrice = updates.product?.unitPrice || quotes[quoteIndex].product.unitPrice;
+    const subtotal = quantity * unitPrice;
+
     const updatedQuote = {
       ...quotes[quoteIndex],
       ...updates,
-      // Recalculate total if product data changes
+      // Recalculate subtotal, IVA, and total if product data changes
       product: updates.product ? {
         ...quotes[quoteIndex].product,
         ...updates.product,
-        total: (updates.product.quantity || quotes[quoteIndex].product.quantity) *
-               (updates.product.unitPrice || quotes[quoteIndex].product.unitPrice)
+        subtotal: subtotal,
+        iva: subtotal * 0.16,
+        total: subtotal * 1.16
       } : quotes[quoteIndex].product
     };
 
