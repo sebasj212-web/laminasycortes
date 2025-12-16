@@ -1,7 +1,7 @@
 import { Card } from '../ui/Card.js';
 import { Button } from '../ui/Button.js';
 import { Alert } from '../ui/Alert.js';
-import QuotesService from '../../services/quotesService.js';
+import QuotesServiceDB from '../../services/quotesServiceDB.js';
 
 /**
  * Componente para mostrar la lista de cotizaciones
@@ -56,19 +56,23 @@ export function QuotesList({ onEdit, onView, onDelete } = {}) {
   }
 
   // Función para manejar la eliminación
-  function handleDelete(quoteId, quoteNumber) {
+  async function handleDelete(quoteId, quoteNumber) {
     if (confirm(`¿Estás seguro de eliminar la cotización ${quoteNumber}?`)) {
-      const success = QuotesService.deleteQuote(quoteId);
+      try {
+        const success = await QuotesServiceDB.deleteQuote(quoteId);
 
-      if (success) {
-        showAlert(`Cotización ${quoteNumber} eliminada exitosamente`, 'success');
-        render();
+        if (success) {
+          showAlert(`Cotización ${quoteNumber} eliminada exitosamente`, 'success');
+          await render();
 
-        if (onDelete) {
-          onDelete(quoteId);
+          if (onDelete) {
+            onDelete(quoteId);
+          }
+        } else {
+          showAlert('Error al eliminar la cotización', 'error');
         }
-      } else {
-        showAlert('Error al eliminar la cotización', 'error');
+      } catch (error) {
+        showAlert('Error al eliminar la cotización: ' + error.message, 'error');
       }
     }
   }
@@ -159,7 +163,7 @@ export function QuotesList({ onEdit, onView, onDelete } = {}) {
   }
 
   // Función para renderizar la lista
-  function render() {
+  async function render() {
     // Limpiar contenedor excepto alertas
     const existingAlert = container.querySelector('.alert');
     container.innerHTML = '';
@@ -167,15 +171,71 @@ export function QuotesList({ onEdit, onView, onDelete } = {}) {
       container.appendChild(existingAlert);
     }
 
-    // Obtener cotizaciones
-    const quotes = QuotesService.getAllQuotes();
+    // Mostrar loading
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'quotes-loading';
+    loadingDiv.textContent = 'Cargando cotizaciones...';
+    container.appendChild(loadingDiv);
 
-    if (quotes.length === 0) {
+    try {
+      // Obtener cotizaciones
+      const quotes = await QuotesServiceDB.getAllQuotes();
+
+      // Remover loading
+      loadingDiv.remove();
+
+      if (quotes.length === 0) {
+        const emptyDiv = document.createElement('div');
+        emptyDiv.className = 'quotes-empty-state';
+        emptyDiv.innerHTML = `
+          <p>No hay cotizaciones creadas aún.</p>
+          <p>Crea tu primera cotización para comenzar.</p>
+        `;
+
+        const emptyState = Card({
+          padded: true,
+          children: emptyDiv
+        });
+
+        container.appendChild(emptyState);
+        return;
+      }
+
+      // Ordenar por fecha (más recientes primero)
+      const sortedQuotes = [...quotes].sort((a, b) => {
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      });
+
+      // Header de la lista
+      const listHeader = document.createElement('div');
+      listHeader.className = 'quotes-list-header';
+      listHeader.innerHTML = `
+        <h2>Cotizaciones (${quotes.length})</h2>
+      `;
+      container.appendChild(listHeader);
+
+      // Crear tarjetas
+      const cardsContainer = document.createElement('div');
+      cardsContainer.className = 'quotes-cards-container';
+
+      sortedQuotes.forEach(quote => {
+        const card = createQuoteCard(quote);
+        cardsContainer.appendChild(card);
+      });
+
+      container.appendChild(cardsContainer);
+    } catch (error) {
+      // Remover loading
+      loadingDiv.remove();
+
+      // Mostrar error
+      showAlert('Error al cargar cotizaciones: ' + error.message, 'error');
+
       const emptyDiv = document.createElement('div');
       emptyDiv.className = 'quotes-empty-state';
       emptyDiv.innerHTML = `
-        <p>No hay cotizaciones creadas aún.</p>
-        <p>Crea tu primera cotización para comenzar.</p>
+        <p>Error al cargar las cotizaciones.</p>
+        <p>Por favor, recarga la página.</p>
       `;
 
       const emptyState = Card({
@@ -184,32 +244,7 @@ export function QuotesList({ onEdit, onView, onDelete } = {}) {
       });
 
       container.appendChild(emptyState);
-      return;
     }
-
-    // Ordenar por fecha (más recientes primero)
-    const sortedQuotes = [...quotes].sort((a, b) => {
-      return new Date(b.createdAt) - new Date(a.createdAt);
-    });
-
-    // Header de la lista
-    const listHeader = document.createElement('div');
-    listHeader.className = 'quotes-list-header';
-    listHeader.innerHTML = `
-      <h2>Cotizaciones (${quotes.length})</h2>
-    `;
-    container.appendChild(listHeader);
-
-    // Crear tarjetas
-    const cardsContainer = document.createElement('div');
-    cardsContainer.className = 'quotes-cards-container';
-
-    sortedQuotes.forEach(quote => {
-      const card = createQuoteCard(quote);
-      cardsContainer.appendChild(card);
-    });
-
-    container.appendChild(cardsContainer);
   }
 
   // Renderizar inicialmente

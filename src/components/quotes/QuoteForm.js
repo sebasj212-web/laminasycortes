@@ -3,8 +3,8 @@ import { Button } from '../ui/Button.js';
 import { Card } from '../ui/Card.js';
 import { Alert } from '../ui/Alert.js';
 import { validateRequired, validateEmail } from '../../utils/validators.js';
-import QuotesService from '../../services/quotesService.js';
-import { AuthService } from '../../services/authService.js';
+import QuotesServiceDB from '../../services/quotesServiceDB.js';
+import { AuthServiceDB } from '../../services/authServiceDB.js';
 
 /**
  * Componente de formulario para crear cotizaciones
@@ -139,12 +139,15 @@ export function QuoteForm({ onSuccess, onCancel } = {}) {
       return;
     }
 
-    try {
-      // Obtener usuario actual
-      const currentUser = AuthService.getCurrentUser();
+    // Deshabilitar botón de submit
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Creando...';
 
-      // Crear cotización
-      const quote = QuotesService.createQuote({
+    try {
+      // Crear cotización (no necesitamos pasar currentUserEmail porque QuotesServiceDB lo obtiene automáticamente)
+      const quote = await QuotesServiceDB.createQuote({
         client: {
           name: formData.client.name,
           email: formData.client.email,
@@ -155,7 +158,7 @@ export function QuoteForm({ onSuccess, onCancel } = {}) {
           quantity: Number(formData.product.quantity),
           unitPrice: Number(formData.product.unitPrice)
         }
-      }, currentUser?.email);
+      });
 
       showAlert(`Cotización ${quote.number} creada exitosamente`, 'success');
 
@@ -167,6 +170,9 @@ export function QuoteForm({ onSuccess, onCancel } = {}) {
       }
     } catch (error) {
       showAlert(error.message || 'Error al crear la cotización');
+      // Rehabilitar botón
+      submitButton.disabled = false;
+      submitButton.textContent = originalText;
     }
   }
 
