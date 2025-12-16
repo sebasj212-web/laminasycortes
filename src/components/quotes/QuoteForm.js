@@ -59,18 +59,32 @@ export function QuoteForm({ onSuccess, onCancel } = {}) {
     return newErrors;
   }
 
-  // Función para calcular el total
-  function calculateTotal() {
+  // Función para calcular valores
+  function calculateValues() {
     const quantity = Number(formData.product.quantity) || 0;
     const unitPrice = Number(formData.product.unitPrice) || 0;
-    return quantity * unitPrice;
+    const subtotal = quantity * unitPrice;
+    const iva = subtotal * 0.16;
+    const total = subtotal * 1.16;
+
+    return { subtotal, iva, total };
   }
 
   // Función para actualizar la vista del total
   function updateTotal() {
+    const subtotalElement = form.querySelector('.quote-subtotal-value');
+    const ivaElement = form.querySelector('.quote-iva-value');
     const totalElement = form.querySelector('.quote-total-value');
+
+    const { subtotal, iva, total } = calculateValues();
+
+    if (subtotalElement) {
+      subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+    }
+    if (ivaElement) {
+      ivaElement.textContent = `$${iva.toFixed(2)}`;
+    }
     if (totalElement) {
-      const total = calculateTotal();
       totalElement.textContent = `$${total.toFixed(2)}`;
     }
   }
@@ -228,12 +242,23 @@ export function QuoteForm({ onSuccess, onCancel } = {}) {
       ]
     });
 
-    // Total
+    // Resumen de totales
+    const { subtotal, iva, total } = calculateValues();
     const totalSection = document.createElement('div');
-    totalSection.className = 'quote-total';
+    totalSection.className = 'quote-totals';
     totalSection.innerHTML = `
-      <div class="quote-total-label">Total:</div>
-      <div class="quote-total-value">$${calculateTotal().toFixed(2)}</div>
+      <div class="quote-total-row">
+        <div class="quote-total-label">Subtotal:</div>
+        <div class="quote-subtotal-value">$${subtotal.toFixed(2)}</div>
+      </div>
+      <div class="quote-total-row">
+        <div class="quote-total-label">IVA (16%):</div>
+        <div class="quote-iva-value">$${iva.toFixed(2)}</div>
+      </div>
+      <div class="quote-total-row quote-total-row-final">
+        <div class="quote-total-label">Total:</div>
+        <div class="quote-total-value">$${total.toFixed(2)}</div>
+      </div>
     `;
 
     // Botones

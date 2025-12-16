@@ -20,21 +20,46 @@
   margin-bottom: 0;
 }
 
-/* Total section */
-.quote-total {
+/* Totals section */
+.quote-totals {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+  background-color: var(--color-bg-light, #f8f9fa);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border, #e0e0e0);
+}
+
+.quote-total-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-lg);
-  background-color: var(--color-primary-light, #ebf5fb);
-  border-radius: var(--border-radius-md);
-  border: 2px solid var(--color-primary);
+  padding: var(--spacing-sm) 0;
+}
+
+.quote-total-row-final {
+  border-top: 2px solid var(--color-primary);
+  padding-top: var(--spacing-md);
+  margin-top: var(--spacing-sm);
 }
 
 .quote-total-label {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--color-text-primary, #2c3e50);
+}
+
+.quote-total-row-final .quote-total-label {
   font-size: var(--font-size-lg);
   font-weight: 600;
-  color: var(--color-text-primary, #2c3e50);
+}
+
+.quote-subtotal-value,
+.quote-iva-value {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--color-text-secondary, #7f8c8d);
 }
 
 .quote-total-value {
@@ -68,9 +93,11 @@
     width: 100%;
   }
 
-  .quote-total {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    text-align: center;
+  .quote-totals {
+    padding: var(--spacing-md);
+  }
+
+  .quote-total-row {
+    flex-direction: row;
   }
 }
