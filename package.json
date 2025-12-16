@@ -32,5 +32,8 @@
     "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.4.2",
     "vite": "^6.0.5"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.87.3"
   }
 }
