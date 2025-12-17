@@ -30,7 +30,15 @@ export function QuotesPage() {
 
   // Función para renderizar la página
   function render() {
+    // Preservar la barra de autenticación si existe
+    const authBar = container.querySelector('.auth-status-bar');
+
     container.innerHTML = '';
+
+    // Re-agregar la barra de autenticación si existía
+    if (authBar) {
+      container.appendChild(authBar);
+    }
 
     // Header
     const header = document.createElement('header');
