@@ -1,0 +1,32 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo blanco -->
+  <rect width="200" height="200" fill="white"/>
+
+  <!-- Forma principal roja (estilizada) -->
+  <g transform="translate(40, 40)">
+    <!-- Parte superior roja -->
+    <path d="M 20 10 L 40 30 L 40 50 L 20 70 L 20 10" fill="#D32F2F"/>
+
+    <!-- Parte inferior gris -->
+    <path d="M 20 70 L 40 50 L 60 50 L 40 70 L 20 70" fill="#757575" opacity="0.6"/>
+
+    <!-- Línea de base -->
+    <circle cx="10" cy="110" r="8" fill="#D32F2F"/>
+  </g>
+
+  <!-- Texto principal -->
+  <text x="100" y="90" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#212121">
+    láminas y cortes
+  </text>
+  <text x="100" y="115" font-family="Arial, sans-serif" font-size="20" fill="#212121">
+    bogotá s.a.s.
+  </text>
+
+  <!-- Subtítulo -->
+  <text x="100" y="140" font-family="Georgia, serif" font-size="10" font-style="italic" fill="#757575">
+    "Procesos especializados que transforman
+  </text>
+  <text x="100" y="155" font-family="Georgia, serif" font-size="10" font-style="italic" fill="#757575">
+    y agregan valor al acero"
+  </text>
+</svg>
