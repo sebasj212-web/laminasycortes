@@ -68,3 +68,37 @@
   color: #2980b9;
   border-left-color: var(--color-info);
 }
+
+/* Alerts en páginas de autenticación (fondo oscuro) */
+.auth-page .alert {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-lg);
+}
+
+.auth-page .alert--success {
+  background-color: var(--color-white);
+  color: var(--color-success);
+  border-left-color: var(--color-success);
+  border-left-width: 4px;
+}
+
+.auth-page .alert--error {
+  background-color: var(--color-white);
+  color: var(--color-error);
+  border-left-color: var(--color-error);
+  border-left-width: 4px;
+}
+
+.auth-page .alert--warning {
+  background-color: var(--color-white);
+  color: var(--color-warning);
+  border-left-color: var(--color-warning);
+  border-left-width: 4px;
+}
+
+.auth-page .alert--info {
+  background-color: var(--color-white);
+  color: var(--color-info);
+  border-left-color: var(--color-info);
+  border-left-width: 4px;
+}
