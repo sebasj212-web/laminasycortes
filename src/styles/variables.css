@@ -1,60 +1,86 @@
 /* Design Tokens - Variables CSS */
+/* Láminas y Cortes Bogotá - Brand Colors */
 :root {
-  /* Colores Primarios */
-  --color-primary: #3498db;
-  --color-primary-dark: #2980b9;
-  --color-primary-light: #5dade2;
+  /* Colores de Marca Láminas y Cortes */
+  --color-primary: #D32F2F;          /* Rojo corporativo */
+  --color-primary-dark: #B71C1C;     /* Rojo oscuro */
+  --color-primary-light: #EF5350;    /* Rojo claro */
 
   /* Colores Neutrales */
-  --color-dark: #2c3e50;
-  --color-gray: #7f8c8d;
-  --color-light: #ecf0f1;
-  --color-white: #ffffff;
+  --color-dark: #212121;             /* Negro/Gris muy oscuro */
+  --color-gray: #757575;             /* Gris medio */
+  --color-gray-light: #BDBDBD;       /* Gris claro */
+  --color-light: #F5F5F5;            /* Gris muy claro */
+  --color-white: #FFFFFF;            /* Blanco */
 
   /* Colores de Texto */
-  --color-text-primary: #2c3e50;
-  --color-text-secondary: #7f8c8d;
+  --color-text-primary: #212121;     /* Texto principal */
+  --color-text-secondary: #757575;   /* Texto secundario */
+  --color-text-light: #9E9E9E;       /* Texto claro */
 
   /* Colores de Fondo */
-  --color-bg-light: #f8f9fa;
-  --color-bg-white: #ffffff;
+  --color-bg-light: #FAFAFA;         /* Fondo claro */
+  --color-bg-white: #FFFFFF;         /* Fondo blanco */
+  --color-bg-dark: #212121;          /* Fondo oscuro */
 
   /* Bordes */
-  --color-border: #e0e0e0;
+  --color-border: #E0E0E0;           /* Borde estándar */
+  --color-border-light: #EEEEEE;     /* Borde claro */
 
   /* Estados */
-  --color-success: #27ae60;
-  --color-error: #e74c3c;
-  --color-warning: #f39c12;
-  --color-info: #3498db;
+  --color-success: #4CAF50;          /* Verde éxito */
+  --color-error: #D32F2F;            /* Rojo error (mismo que primary) */
+  --color-warning: #FF9800;          /* Naranja advertencia */
+  --color-info: #2196F3;             /* Azul información */
+
+  /* Estados para botones danger (usar un color diferente al primary) */
+  --color-danger: #F44336;           /* Rojo para acciones peligrosas */
 
   /* Espaciado */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-xxl: 3rem;
+  --spacing-xs: 0.25rem;             /* 4px */
+  --spacing-sm: 0.5rem;              /* 8px */
+  --spacing-md: 1rem;                /* 16px */
+  --spacing-lg: 1.5rem;              /* 24px */
+  --spacing-xl: 2rem;                /* 32px */
+  --spacing-xxl: 3rem;               /* 48px */
 
   /* Tipografía */
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 1.5rem;
-  --font-size-xxl: 2rem;
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-heading: 'Segoe UI', 'Roboto', Arial, sans-serif;
 
-  /* Bordes */
+  --font-size-xs: 0.75rem;           /* 12px */
+  --font-size-sm: 0.875rem;          /* 14px */
+  --font-size-base: 1rem;            /* 16px */
+  --font-size-lg: 1.125rem;          /* 18px */
+  --font-size-xl: 1.25rem;           /* 20px */
+  --font-size-2xl: 1.5rem;           /* 24px */
+  --font-size-3xl: 2rem;             /* 32px */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Bordes y Radios */
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
   --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
 
   /* Sombras */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-  --shadow-lg: 0 10px 20px rgba(0,0,0,0.15);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.15);
 
   /* Transiciones */
   --transition-fast: 150ms ease-in-out;
   --transition-normal: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+}
+
+/* Color scheme oscuro para elementos especiales */
+.dark-theme {
+  --color-bg-primary: #212121;
+  --color-text-on-dark: #FFFFFF;
 }

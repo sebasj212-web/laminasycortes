@@ -58,13 +58,19 @@
 
 /* Variante Danger */
 .btn--danger {
-  background-color: var(--color-error);
+  background-color: var(--color-danger);
   color: var(--color-white);
 }
 
 .btn--danger:hover:not(:disabled) {
-  background-color: #c0392b;
+  background-color: #D32F2F;
   box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.btn--danger:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Modificador Full Width */

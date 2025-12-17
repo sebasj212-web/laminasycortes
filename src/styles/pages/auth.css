@@ -1,5 +1,6 @@
 /**
  * Estilos para páginas de autenticación (Login y Register)
+ * Láminas y Cortes Bogotá - Brand Identity
  */
 
 .auth-page {
@@ -9,7 +10,27 @@
   align-items: center;
   justify-content: center;
   padding: var(--spacing-xl);
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  background: linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%);
+  position: relative;
+}
+
+/* Patrón de fondo sutil */
+.auth-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(30deg, rgba(255, 255, 255, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.03) 87.5%, rgba(255, 255, 255, 0.03)),
+    linear-gradient(150deg, rgba(255, 255, 255, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.03) 87.5%, rgba(255, 255, 255, 0.03)),
+    linear-gradient(30deg, rgba(255, 255, 255, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.03) 87.5%, rgba(255, 255, 255, 0.03)),
+    linear-gradient(150deg, rgba(255, 255, 255, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.03) 87.5%, rgba(255, 255, 255, 0.03));
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 /* Header (Logo y título) */
@@ -17,33 +38,39 @@
   text-align: center;
   margin-bottom: var(--spacing-xl);
   color: var(--color-white);
+  position: relative;
+  z-index: 1;
 }
 
 .auth-title {
   font-size: var(--font-size-3xl);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   margin: 0 0 var(--spacing-xs) 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.5px;
 }
 
 .auth-subtitle {
   font-size: var(--font-size-lg);
-  font-weight: 400;
+  font-weight: var(--font-weight-normal);
   margin: 0;
-  opacity: 0.9;
+  opacity: 0.95;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* Formulario */
 .auth-form {
   width: 100%;
   max-width: 420px;
-  animation: slideUp 0.3s ease-out;
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -52,8 +79,9 @@
 }
 
 .auth-form .card {
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-xl);
   border: none;
+  backdrop-filter: blur(10px);
 }
 
 /* Botón container */
@@ -66,16 +94,16 @@
 .auth-link {
   text-align: center;
   font-size: var(--font-size-sm);
-  color: var(--color-text-light);
+  color: var(--color-text-secondary);
   padding-top: var(--spacing-md);
-  border-top: 1px solid var(--color-gray-light, #e0e0e0);
+  border-top: 1px solid var(--color-border-light);
 }
 
 .auth-link-anchor {
   color: var(--color-primary);
   text-decoration: none;
-  font-weight: 600;
-  transition: color var(--transition-normal);
+  font-weight: var(--font-weight-semibold);
+  transition: all var(--transition-fast);
 }
 
 .auth-link-anchor:hover {
@@ -90,6 +118,25 @@
 
 .auth-form .input-group:last-of-type {
   margin-bottom: 0;
+}
+
+/* Logo o badge en el header */
+.auth-logo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-md);
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.auth-logo svg,
+.auth-logo img {
+  width: 50px;
+  height: 50px;
 }
 
 /* Responsive */
@@ -112,11 +159,26 @@
 }
 
 @media (max-width: 480px) {
+  .auth-page {
+    padding: var(--spacing-sm);
+  }
+
   .auth-title {
     font-size: var(--font-size-xl);
   }
 
   .auth-header {
     margin-bottom: var(--spacing-lg);
+  }
+
+  .auth-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .auth-logo svg,
+  .auth-logo img {
+    width: 40px;
+    height: 40px;
   }
 }
