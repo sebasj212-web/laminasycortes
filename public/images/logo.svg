@@ -1,27 +1,22 @@
-<svg width="400" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-  <!-- Cuadro del logo -->
-  <rect x="5" y="5" width="100" height="110" fill="white" stroke="#212121" stroke-width="2"/>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo blanco -->
+  <rect width="100" height="100" fill="white"/>
 
-  <!-- Forma geométrica roja (estilizada) -->
-  <g transform="translate(20, 10)">
-    <!-- Forma principal roja con ángulos -->
-    <path d="M 20 10 L 40 10 L 40 50 L 30 60 L 20 50 Z" fill="#D32F2F"/>
-    <path d="M 30 60 L 40 50 L 50 60 L 40 70 Z" fill="#C62828"/>
+  <!-- Cuadro del logo con borde -->
+  <rect x="2" y="2" width="96" height="96" fill="white" stroke="#212121" stroke-width="3" rx="5"/>
 
-    <!-- Reflejo gris inferior -->
-    <path d="M 20 70 L 30 60 L 40 70 L 50 60 L 50 75 L 20 75 Z" fill="#9E9E9E" opacity="0.5"/>
+  <!-- Forma geométrica roja (lámina) -->
+  <g transform="translate(25, 15)">
+    <!-- Parte superior de la lámina (rojo principal) -->
+    <path d="M 15 5 L 30 5 L 30 35 L 22.5 45 L 15 35 Z" fill="#D32F2F"/>
+
+    <!-- Corte diagonal (rojo oscuro) -->
+    <path d="M 22.5 45 L 30 35 L 37.5 45 L 30 55 Z" fill="#B71C1C"/>
+
+    <!-- Reflejo/base (gris) -->
+    <path d="M 15 55 L 22.5 45 L 30 55 L 37.5 45 L 40 55 L 40 62 L 15 62 Z" fill="#757575" opacity="0.6"/>
 
     <!-- Punto decorativo -->
-    <circle cx="10" cy="85" r="6" fill="#D32F2F"/>
+    <circle cx="7" cy="70" r="4" fill="#D32F2F"/>
   </g>
-
-  <!-- Texto principal -->
-  <text x="120" y="40" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="bold" fill="#212121">
-    láminas y cortes bogotá s.a.s.
-  </text>
-
-  <!-- Subtítulo en cursiva -->
-  <text x="120" y="65" font-family="Georgia, Times, serif" font-size="12" font-style="italic" fill="#757575">
-    "Procesos especializados que transforman y agregan valor al acero"
-  </text>
 </svg>
