@@ -126,6 +126,9 @@ export function LoginPage({ onSuccess, onRegisterClick } = {}) {
     const header = document.createElement('div');
     header.className = 'auth-header';
     header.innerHTML = `
+      <div class="auth-logo">
+        <img src="/images/logo.png" alt="Láminas y Cortes Bogotá" />
+      </div>
       <h1 class="auth-title">Láminas y Cortes</h1>
       <p class="auth-subtitle">Sistema de Cotizaciones</p>
     `;
