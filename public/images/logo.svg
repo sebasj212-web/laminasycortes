@@ -1,32 +1,27 @@
-<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-  <!-- Fondo blanco -->
-  <rect width="200" height="200" fill="white"/>
+<svg width="400" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cuadro del logo -->
+  <rect x="5" y="5" width="100" height="110" fill="white" stroke="#212121" stroke-width="2"/>
 
-  <!-- Forma principal roja (estilizada) -->
-  <g transform="translate(40, 40)">
-    <!-- Parte superior roja -->
-    <path d="M 20 10 L 40 30 L 40 50 L 20 70 L 20 10" fill="#D32F2F"/>
+  <!-- Forma geométrica roja (estilizada) -->
+  <g transform="translate(20, 10)">
+    <!-- Forma principal roja con ángulos -->
+    <path d="M 20 10 L 40 10 L 40 50 L 30 60 L 20 50 Z" fill="#D32F2F"/>
+    <path d="M 30 60 L 40 50 L 50 60 L 40 70 Z" fill="#C62828"/>
 
-    <!-- Parte inferior gris -->
-    <path d="M 20 70 L 40 50 L 60 50 L 40 70 L 20 70" fill="#757575" opacity="0.6"/>
+    <!-- Reflejo gris inferior -->
+    <path d="M 20 70 L 30 60 L 40 70 L 50 60 L 50 75 L 20 75 Z" fill="#9E9E9E" opacity="0.5"/>
 
-    <!-- Línea de base -->
-    <circle cx="10" cy="110" r="8" fill="#D32F2F"/>
+    <!-- Punto decorativo -->
+    <circle cx="10" cy="85" r="6" fill="#D32F2F"/>
   </g>
 
   <!-- Texto principal -->
-  <text x="100" y="90" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#212121">
-    láminas y cortes
-  </text>
-  <text x="100" y="115" font-family="Arial, sans-serif" font-size="20" fill="#212121">
-    bogotá s.a.s.
+  <text x="120" y="40" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="bold" fill="#212121">
+    láminas y cortes bogotá s.a.s.
   </text>
 
-  <!-- Subtítulo -->
-  <text x="100" y="140" font-family="Georgia, serif" font-size="10" font-style="italic" fill="#757575">
-    "Procesos especializados que transforman
-  </text>
-  <text x="100" y="155" font-family="Georgia, serif" font-size="10" font-style="italic" fill="#757575">
-    y agregan valor al acero"
+  <!-- Subtítulo en cursiva -->
+  <text x="120" y="65" font-family="Georgia, Times, serif" font-size="12" font-style="italic" fill="#757575">
+    "Procesos especializados que transforman y agregan valor al acero"
   </text>
 </svg>
