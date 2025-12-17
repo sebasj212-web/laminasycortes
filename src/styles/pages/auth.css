@@ -1,0 +1,122 @@
+/**
+ * Estilos para páginas de autenticación (Login y Register)
+ */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+}
+
+/* Header (Logo y título) */
+.auth-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-white);
+}
+
+.auth-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  margin: 0 0 var(--spacing-xs) 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.auth-subtitle {
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Formulario */
+.auth-form {
+  width: 100%;
+  max-width: 420px;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-form .card {
+  box-shadow: var(--shadow-lg);
+  border: none;
+}
+
+/* Botón container */
+.auth-button-container {
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Link de navegación */
+.auth-link {
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-gray-light, #e0e0e0);
+}
+
+.auth-link-anchor {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-normal);
+}
+
+.auth-link-anchor:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* Espaciado entre inputs */
+.auth-form .input-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.auth-form .input-group:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .auth-page {
+    padding: var(--spacing-md);
+  }
+
+  .auth-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .auth-subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .auth-form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-title {
+    font-size: var(--font-size-xl);
+  }
+
+  .auth-header {
+    margin-bottom: var(--spacing-lg);
+  }
+}

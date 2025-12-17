@@ -68,6 +68,7 @@
 }
 
 /* Modificador Full Width */
-.btn--full {
+.btn--full,
+.btn--full-width {
   width: 100%;
 }

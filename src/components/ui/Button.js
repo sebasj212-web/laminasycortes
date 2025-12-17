@@ -7,6 +7,7 @@
  * @param {Function} props.onClick - Manejador de click
  * @param {string} props.children - Texto del botón
  * @param {string} props.className - Clases CSS adicionales
+ * @param {boolean} props.fullWidth - Botón de ancho completo
  * @returns {HTMLButtonElement}
  */
 export function Button({
@@ -15,7 +16,8 @@ export function Button({
   type = 'button',
   onClick,
   children,
-  className = ''
+  className = '',
+  fullWidth = false
 }) {
   const button = document.createElement('button');
 
@@ -24,6 +26,9 @@ export function Button({
 
   // Configurar clases
   const classes = ['btn', `btn--${variant}`];
+  if (fullWidth) {
+    classes.push('btn--full-width');
+  }
   if (className) {
     classes.push(className);
   }
